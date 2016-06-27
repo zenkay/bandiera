@@ -93,6 +93,37 @@
     </div>
   </div>
 
+  <div class="well">
+    <h4>Timeslot</h4>
+    <p>Use this option to have the feature enabled only insiede a give timeslot.</p>
+    <p>Please note that the feature must also be active before it's enabled in that timeslot. Inactive features will be disabled, regardless of the settings in this section.</p>
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="feature[start_datetime]">Timeslot Begin</label>
+          <div class='input-group date datetimepicker'>
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for="feature[start_datetime]">Timeslot End</label>
+          <div class='input-group date datetimepicker' id="puppa">
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <hr />
 
   <input type="hidden" name="feature[previous_group]" value="<%= @feature.group ? @feature.group.name : nil %>" />
