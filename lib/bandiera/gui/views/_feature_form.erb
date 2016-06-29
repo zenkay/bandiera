@@ -104,7 +104,7 @@
         <div class="form-group">
           <label for="feature[start_timeslot]">Timeslot Begin</label>
           <div class='input-group date datetimepicker'>
-            <input type='text' class="form-control" name="feature[start_timeslot]" />
+            <input type='text' class="form-control" name="feature[start_timeslot]" value="<%= (@feature.start_timeslot.strftime("%Y-%m-%d %H:%M:%S") if @feature.start_timeslot) %>" />
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -115,7 +115,7 @@
         <div class="form-group">
           <label for="feature[end_timeslot]">Timeslot End</label>
           <div class='input-group date datetimepicker' id="puppa">
-            <input type='text' class="form-control" name="feature[end_timeslot]" />
+            <input type='text' class="form-control" name="feature[end_timeslot]" value="<%= (@feature.end_timeslot.strftime("%Y-%m-%d %H:%M:%S") if @feature.end_timeslot) %>" />
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
