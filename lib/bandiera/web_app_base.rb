@@ -29,11 +29,13 @@ module Bandiera
 
     def process_v1_feature_params(params)
       {
-        group:       params['group'],
-        name:        params['name'],
-        description: params['description'],
-        active:      params['enabled'] == 'true',
-        percentage:  params['percentage']
+        group:          params['group'],
+        name:           params['name'],
+        description:    params['description'],
+        active:         params['enabled'] == 'true',
+        percentage:     params['percentage'],
+        start_timeslot: params['start_timeslot'],
+        end_timeslot:   params['end_timeslot']
       }
     end
 
@@ -45,12 +47,14 @@ module Bandiera
       }
 
       {
-        group:       params['group'],
-        name:        params['name'],
-        description: params['description'],
-        active:      params['active'] == 'true',
-        user_groups: user_groups,
-        percentage:  params['percentage']
+        group:          params['group'],
+        name:           params['name'],
+        description:    params['description'],
+        active:         params['active'] == 'true',
+        user_groups:    user_groups,
+        percentage:     params['percentage'],
+        start_timeslot: params['start_timeslot'],
+        end_timeslot:   params['end_timeslot']
       }
     end
 

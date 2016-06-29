@@ -1,10 +1,12 @@
 <%
   @feature ||= Bandiera::Feature.new(
-    name:         '',
-    group:        nil,
-    description:  '',
-    active:       false,
-    user_groups:  { list: [], regex: '' }
+    name:           '',
+    group:          nil,
+    description:    '',
+    active:         false,
+    user_groups:    { list: [], regex: '' },
+    start_timeslot: '',
+    end_timeslot:   ''
   )
 %>
 
@@ -100,9 +102,9 @@
     <div class="row">
       <div class="col-md-5">
         <div class="form-group">
-          <label for="feature[start_datetime]">Timeslot Begin</label>
+          <label for="feature[start_timeslot]">Timeslot Begin</label>
           <div class='input-group date datetimepicker'>
-            <input type='text' class="form-control" />
+            <input type='text' class="form-control" name="feature[start_timeslot]" />
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -111,9 +113,9 @@
       </div>
       <div class="col-md-5">
         <div class="form-group">
-          <label for="feature[start_datetime]">Timeslot End</label>
+          <label for="feature[end_timeslot]">Timeslot End</label>
           <div class='input-group date datetimepicker' id="puppa">
-            <input type='text' class="form-control" />
+            <input type='text' class="form-control" name="feature[end_timeslot]" />
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
