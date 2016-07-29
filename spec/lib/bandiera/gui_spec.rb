@@ -35,7 +35,7 @@ RSpec.describe Bandiera::GUI do
       all('.bandiera-feature-group').each do |div|
         group_name = div.find('h3').text
         features   = div.all('tr.bandiera-feature').map do |tr|
-          tr.all('td')[3].text
+          tr.all('td')[4].text
         end
 
         groups[group_name] = features

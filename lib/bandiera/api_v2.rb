@@ -68,7 +68,7 @@ module Bandiera
     private
 
     def response_for(feature)
-      feature.enabled?(user_group: params[:user_group], user_id: params[:user_id])
+      feature.enabled?(user_group: params[:user_group], user_id: params[:user_id], start_timeslot: feature.start_timeslot, end_timeslot: feature.end_timeslot)
     end
 
     def warnings_for(feature)

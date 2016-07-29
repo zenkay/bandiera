@@ -17,11 +17,11 @@ module Bandiera
       active
     end
 
-    def enabled?(opts = { user_group: nil, user_id: nil })
+    def enabled?(opts = { user_group: nil, user_id: nil, start_timeslot: nil, end_timeslot: nil })
       return false unless active?
-      return true  unless user_groups_configured? || percentage_configured?
+      return true  unless user_groups_configured? || percentage_configured? || timeslot_configured?
 
-      false || enabled_for_user_groups?(opts) || enabled_for_percentage?(opts)
+      false || enabled_for_user_groups?(opts) || enabled_for_percentage?(opts) || enabled_for_timeslot?(opts)
     end
 
     def report_enabled_warnings(opts = { user_group: nil, user_id: nil })
@@ -51,6 +51,10 @@ module Bandiera
       !percentage.nil?
     end
 
+    def timeslot_configured?
+      !start_timeslot.nil? || !end_timeslot.nil?
+    end
+
     def as_v1_json
       {
         group:       group.name,
@@ -70,6 +74,13 @@ module Bandiera
     def enabled_for_percentage?(opts)
       return false unless percentage_configured? && opts[:user_id]
       percentage_enabled_for_user?(opts[:user_id])
+    end
+
+    def enabled_for_timeslot?(opts)
+      return false if (opts[:start_timeslot].nil? || opts[:start_timeslot].blank?) && (opts[:end_timeslot].nil? || opts[:end_timeslot].blank?)
+      return false if opts[:start_timeslot] && Time.now < opts[:start_timeslot]
+      return false if opts[:end_timeslot] && Time.now > opts[:end_timeslot]
+      return true
     end
 
     def feature_service
